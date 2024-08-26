@@ -5,7 +5,7 @@ import numpy as np
 
 features = ["GenHlth", "BMI", "HeartDiseaseorAttack", "DiffWalk", "HvyAlcoholConsump"]
 pipeline = joblib.load("pipeline.joblib")
-classes = ["จากการประเมินเบื่องต้นคุณไม่มีความเสี่ยงที่จะเป็นโรคเบาหวาน 😄", "จากการประเมินเบื่องต้นคุณมีความเสี่ยงที่จะเป็นโรคเบาหวาน 😭"]
+classes = ["จากการประเมินเบื่องต้นคุณไม่มีความเสี่ยงที่จะเป็นโรคเบาหวาน", "จากการประเมินเบื่องต้นคุณมีความเสี่ยงที่จะเป็นโรคเบาหวาน"]
 def predict(genhlth, highbp, highchol, bmi, age, diffWalk):
   sample = dict()
   sample["GenHlth"] = genhlth
@@ -33,7 +33,6 @@ with gr.Blocks() as demo:
   with gr.Row():
     highbp = gr.Radio(choices=list(zip(options_yes_no, values_yes_no)), label="High Blood Pressure", info="Do you have High Blood Pressure?")
     highchol = gr.Radio(choices=list(zip(options_yes_no, values_yes_no)), label="High Cholesterol ", info="Do you have high cholesterol?")
-  
   bmi = gr.Radio(choices=list(zip(options_bmi, values_bmi)), label="BMI", info="Body Mass Index")
   age = gr.Radio(choices=list(zip(options_age, values_age)), label="Age", info="Select your age")
   diffWalk = gr.Radio(choices=list(zip(options_yes_no, values_yes_no)), label="Difficult walk", info="Do you have serious difficulty walking or climbing stairs?")
