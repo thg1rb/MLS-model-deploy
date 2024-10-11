@@ -39,6 +39,7 @@ def cast_string_to_float(input):
     result = float(input)
     return result
 
+
 with gr.Blocks(theme=gr.themes.Soft()) as demo:
     options_genHealt = ["Excellent", "Very good", "Good", "Fair", "Poor"]
     values_genHealt = [1, 2, 3, 4, 5]
@@ -62,7 +63,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
             </p>
         </div>
     """)
-    genhlth = gr.Radio(choices=list(zip(options_genHealt, values_genHealt)), label="Genneral Health", info="Would you say that in general your health is", elem_classes="gr-radio")
+    genhlth = gr.Radio(choices=list(zip(options_genHealt, values_genHealt)), label="General Health", info="Would you say that in general your health is", elem_classes="gr-radio")
     gr.Markdown("""
         <div style="display: block; background-color: #D3FFE1; border: 1px solid #D3FFE1; border-radius: 5px; padding: 15px; color: black;">
             <h3 style="padding: 0; margin: 0; font-weight: bold; color: #49A267;">Which general health should I choose?</h3>
@@ -104,8 +105,8 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
         sex = gr.Radio(choices=list(zip(options_sex, values_sex)), label="Sex", info="What is your sex?", elem_classes="gr-radio")
     
     with gr.Row():
-        height = gr.Number(label="Height", info="What is your height?", value=1)
-        weight = gr.Number(label="Weight", info="What is your weight?", value=1)
+        height = gr.Number(label="Height (cm)", info="What is your height? (centimeter)", value=1)
+        weight = gr.Number(label="Weight (kg)", info="What is your weight? (kilogram)", value=1)
     age = gr.Radio(choices=list(zip(options_age, values_age)), label="Age", info="Select your age", elem_classes="gr-radio")
     diffWalk = gr.Radio(choices=list(zip(options_yes_no, values_yes_no)), label="Difficult walk", info="Do you have serious difficulty walking or climbing stairs?", elem_classes="gr-radio")
 
